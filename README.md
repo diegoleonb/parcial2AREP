@@ -13,3 +13,23 @@ Como el cliente no computa la secuencia directamente sino que la delega a un ser
 ![](img/Capture3.PNG)
 
 ![](img/Capture2.PNG)
+
+
+## AWS
+
+Creamos una instancia EC2 en AWS y accedemos a ella por medio de SFTP para subir los archivos de la aplicación por medio de put.
+
+![](img/Capture4.PNG)
+
+Entramos nueva mente a la instancia por medio de SSH y ejecutamos:
+
+```docker-compose up -d --build```
+
+![](img/Capture5.PNG)
+
+Se puede ver que la aplicación se ejecuta correctamente en el puerto 5000 y 5001.
+
+Donde 5001 es el puerto del cliente y 5000 es el puerto del servicio REST.
+
+![](img/Capture6.PNG)
+

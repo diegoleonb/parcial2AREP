@@ -7,15 +7,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.Queue;
-
 
 public class SparkWebApp {
 
     public static void main(String[] args) {
-        Queue<String> queue = new LinkedList<String>();
-        queue.add(System.getProperty("aws"));
         port(getPort());
         get("/collatzsequence",(req, res)->{
             res.type("application/json");
@@ -25,7 +20,7 @@ public class SparkWebApp {
 
 
     static String urlConnection(String service,String param) throws IOException{
-        URL url = new URL("http://localhost"+":5000/"+service+"?value="+param);
+        URL url = new URL("http://" + "ec2-18-212-36-47.compute-1.amazonaws.com" +":5000/"+service+"?value="+param);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.getResponseCode();
@@ -39,7 +34,6 @@ public class SparkWebApp {
                     br.close();
         return sb.toString();
     }
-
 
     static int getPort() {
         if (System.getenv("PORT") != null) {

@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  container1:
+    environment:
+      - PORT=5001
+    build: 
+      context: ./parcialArep
+      dockerfile: Dockerfile
+    container_name: container1
+    image: diegoleonb/containers:container1
+    ports:
+      - 5001:5001
+
+
+  container2:
+    environment:
+      - PORT=5000
+    build: 
+      context: ./parcialArep2
+      dockerfile: Dockerfile
+    container_name: container2
+    image: diegoleonb/containers:container2
+    ports:
+      - 5000:5000
+volumes:
+  mongodb:
+  mongodb_config:
